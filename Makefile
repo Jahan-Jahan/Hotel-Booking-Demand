@@ -1,10 +1,16 @@
-.PHONY: install eda sql train test serve docker-build docker-run all
+.PHONY: install db-up db-down sql eda train test serve docker-build docker-run all
 
 install:
 	pip install -r requirements-dev.txt
 
 eda:
 	python -m src.eda
+
+db-up:
+	docker compose up -d db
+
+db-down:
+	docker compose down
 
 sql:
 	python -m src.run_sql
@@ -24,4 +30,4 @@ docker-build:
 docker-run:
 	docker run --rm -p 8000:8000 hotel-cancellation-api
 
-all: eda sql train test
+all: db-up sql eda train test

@@ -8,5 +8,6 @@ venv/
 .idea/
 .vscode/
 
-# Generated database (rebuild with `make sql`)
-data/hotel.db
+
+# Secrets
+.env
