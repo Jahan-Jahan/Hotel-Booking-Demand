@@ -1,0 +1,6 @@
+lead_time_bucket,bucket_order,total_bookings,canceled_bookings,cancellation_rate_pct
+00-07 days,1,19746,1902.0,9.63
+08-30 days,2,18960,5283.0,27.86
+31-90 days,3,29553,11141.0,37.7
+91-180 days,4,26439,11821.0,44.71
+181+ days,5,24692,14077.0,57.01

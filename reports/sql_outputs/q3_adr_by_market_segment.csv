@@ -1,0 +1,9 @@
+market_segment,total_bookings,positive_adr_bookings,avg_adr_positive_only,avg_adr_all_rows
+Online TA,56477,56110,117.96,117.2
+Direct,12606,12366,117.69,115.45
+Aviation,237,231,102.74,100.14
+Offline TA/TO,24219,23887,88.57,87.35
+Groups,19811,19558,80.51,79.48
+Corporate,5295,5213,70.45,69.36
+Complementary,743,63,34.04,2.89
+Undefined,2,2,15.0,15.0
