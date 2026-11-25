@@ -4,7 +4,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 DATA_PATH = ROOT / "data" / "hotel_bookings.csv"
-DB_PATH = ROOT / "data" / "hotel.db"
 MODEL_PATH = ROOT / "models" / "model.joblib"
 SQL_DIR = ROOT / "sql"
 REPORTS_DIR = ROOT / "reports"
@@ -24,3 +23,7 @@ MONTH_TO_NUM = {
     "July": 7, "August": 8, "September": 9, "October": 10, "November": 11,
     "December": 12,
 }
+
+# PostgreSQL connection. Override with the DATABASE_URL environment variable
+# (see .env.example). The default matches docker-compose.yml.
+DEFAULT_DATABASE_URL = "postgresql+psycopg://hotel:hotel@localhost:5432/hotel"
