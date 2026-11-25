@@ -1,0 +1,18 @@
+dimension,value,bookings,cancel_rate_pct,lift
+changes,never changed,71425,30.2,1.1
+changes,changed booking,15804,15.5,0.56
+customer_type,Transient,71862,30.1,1.1
+customer_type,Contract,3135,16.3,0.59
+customer_type,Transient-Party,11691,15.3,0.55
+customer_type,Group,541,9.8,0.36
+deposit_type,Non Refund,1038,94.7,3.44
+deposit_type,No Deposit,86084,26.7,0.97
+deposit_type,Refundable,107,24.3,0.88
+guest_type,first-time guest,83866,28.3,1.03
+guest_type,repeat guest,3363,7.7,0.28
+history,has prior cancellation,1681,68.0,2.47
+history,no prior cancellation,85548,26.7,0.97
+parking,no parking,79923,30.0,1.09
+parking,needs parking,7306,0.0,0.0
+requests,no special request,43788,33.3,1.21
+requests,has special request,43441,21.7,0.79

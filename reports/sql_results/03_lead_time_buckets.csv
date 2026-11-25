@@ -1,0 +1,13 @@
+lead_bucket,hotel,bookings,cancel_rate_pct
+1) 0-7 days,City Hotel,9800,10.5
+1) 0-7 days,Resort Hotel,8403,6.0
+2) 8-30 days,City Hotel,10517,27.9
+2) 8-30 days,Resort Hotel,5809,20.9
+3) 31-90 days,City Hotel,15156,33.2
+3) 31-90 days,Resort Hotel,7564,29.8
+4) 91-180 days,City Hotel,11556,36.7
+4) 91-180 days,Resort Hotel,6668,32.0
+5) 181-365 days,City Hotel,5870,44.5
+5) 181-365 days,Resort Hotel,5322,34.4
+6) >365 days,City Hotel,375,51.2
+6) >365 days,Resort Hotel,189,20.1

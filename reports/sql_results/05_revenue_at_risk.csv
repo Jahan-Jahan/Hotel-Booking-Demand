@@ -1,0 +1,7 @@
+hotel,year,booked_revenue_eur,lost_to_cancellation_eur,lost_share_pct,share_of_year_losses_pct
+City Hotel,2015,1764650.0,412127.0,23.4,36.7
+Resort Hotel,2015,3120849.0,709501.0,22.7,63.3
+City Hotel,2016,8984795.0,3077815.0,34.3,62.8
+Resort Hotel,2016,6299584.0,1825205.0,29.0,37.2
+City Hotel,2017,8015588.0,3124513.0,39.0,57.2
+Resort Hotel,2017,6266188.0,2334881.0,37.3,42.8

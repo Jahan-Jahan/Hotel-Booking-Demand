@@ -1,0 +1,9 @@
+market_segment,distribution_channel,bookings,cancel_rate_pct,share_of_bookings_pct,risk_rank
+Online TA,TA/TO,51254,35.5,59.8,1
+Groups,TA/TO,3606,31.3,4.2,2
+Groups,Direct,650,17.2,0.8,3
+Direct,Direct,11467,15.0,13.4,4
+Offline TA/TO,TA/TO,13700,14.9,16.0,5
+Groups,Corporate,665,13.8,0.8,6
+Corporate,Corporate,3893,12.3,4.5,7
+Complementary,Direct,539,12.2,0.6,8
