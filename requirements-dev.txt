@@ -1,0 +1,8 @@
+# Development: EDA, SQL, training, tests
+-r requirements.txt
+matplotlib==3.11.2
+seaborn==0.13.2
+pytest>=8.0
+httpx>=0.27
+sqlalchemy>=2.0
+psycopg[binary]>=3.1

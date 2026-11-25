@@ -1,0 +1,9 @@
+# Runtime / serving. Libraries that affect the pickled model are pinned to the
+# exact versions used for training (models/model.joblib).
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+pydantic>=2.6.0
+scikit-learn==1.9.1
+lightgbm==4.7.0
+pandas==3.0.6
+joblib==1.6.0
