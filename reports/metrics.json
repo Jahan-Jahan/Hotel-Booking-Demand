@@ -1,0 +1,49 @@
+{
+  "majority_baseline": {
+    "roc_auc": 0.5,
+    "pr_auc": 0.3534
+  },
+  "logistic_regression": {
+    "roc_auc": 0.8197,
+    "pr_auc": 0.6932,
+    "brier": 0.1658,
+    "threshold": 0.2482,
+    "accuracy": 0.7143,
+    "precision": 0.5655,
+    "recall": 0.827,
+    "f1": 0.6717
+  },
+  "lightgbm": {
+    "roc_auc": 0.8449,
+    "pr_auc": 0.7124,
+    "brier": 0.1635,
+    "threshold": 0.2098,
+    "accuracy": 0.7394,
+    "precision": 0.5923,
+    "recall": 0.8425,
+    "f1": 0.6956,
+    "best_iteration": 836
+  },
+  "lightgbm_booking_time_only": {
+    "roc_auc": 0.7917,
+    "pr_auc": 0.6285,
+    "brier": 0.1773,
+    "threshold": 0.203,
+    "accuracy": 0.6865,
+    "precision": 0.5328,
+    "recall": 0.9182,
+    "f1": 0.6743
+  },
+  "top_features": [
+    "country",
+    "agent",
+    "required_car_parking_spaces",
+    "total_of_special_requests",
+    "lead_time",
+    "market_segment",
+    "customer_type",
+    "previous_bookings_not_canceled",
+    "booking_changes",
+    "previous_cancellations"
+  ]
+}
