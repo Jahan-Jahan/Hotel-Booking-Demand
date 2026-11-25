@@ -1,20 +1,46 @@
+"""PostgreSQL helpers: connection, CSV loading and query execution."""
+import io
 import os
-from typing import Optional
+
 import pandas as pd
 from sqlalchemy import create_engine, text
+from sqlalchemy.engine import Engine
+
+from src.config import DATA_PATH, DEFAULT_DATABASE_URL
+
+RAW_TABLE = "hotel_bookings"
 
 
-DEFAULT_DB_URL = "postgresql://postgres:postgres@localhost:5432/hotel_db"
+def get_engine() -> Engine:
+    """Engine from $DATABASE_URL (falls back to the docker-compose default)."""
+    return create_engine(os.getenv("DATABASE_URL", DEFAULT_DATABASE_URL), future=True)
 
 
-def get_engine(db_url: Optional[str] = None):
-    url = db_url or os.getenv("DATABASE_URL") or DEFAULT_DB_URL
-    return create_engine(url)
+def load_csv(engine: Engine, csv_path=DATA_PATH, table: str = RAW_TABLE) -> int:
+    """(Re)create `table` from the CSV and bulk-load it with COPY (fast)."""
+    df = pd.read_csv(csv_path)
+    with engine.begin() as con:
+        con.execute(text(f"DROP MATERIALIZED VIEW IF EXISTS bookings"))
+        df.head(0).to_sql(table, con, if_exists="replace", index=False)  # column types only
+        buf = io.StringIO()
+        df.to_csv(buf, index=False, header=False)
+        buf.seek(0)
+        cols = ", ".join(f'"{c}"' for c in df.columns)
+        with con.connection.cursor() as cur, cur.copy(
+            f"COPY {table} ({cols}) FROM STDIN WITH (FORMAT csv)"
+        ) as copy:
+            while chunk := buf.read(1 << 20):
+                copy.write(chunk)
+    return len(df)
 
 
-def read_bookings_from_db(table: str = "hotel_bookings", db_url: Optional[str] = None) -> pd.DataFrame:
-    engine = get_engine(db_url)
-    query = text(f"SELECT * FROM {table}")
-    with engine.connect() as conn:
-        df = pd.read_sql(query, conn)
-    return df
+def run_script(engine: Engine, path) -> None:
+    """Execute a multi-statement SQL file (DDL such as 00_setup.sql)."""
+    with engine.begin() as con:
+        con.exec_driver_sql(path.read_text())
+
+
+def run_query(engine: Engine, sql: str) -> pd.DataFrame:
+    """Run a SELECT and return a DataFrame."""
+    with engine.connect() as con:
+        return pd.read_sql_query(text(sql), con)
